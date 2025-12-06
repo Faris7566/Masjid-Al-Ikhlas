@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="UTF-8">
 <title>Program Masjid</title>
 <link rel="stylesheet" href="style.css">
 
 <style>
 
-/* ===== GALERI POPUP ===== */
+/* ===== GALERI POPUP FIX ===== */
 .popup {
     position: fixed;
     top: 0; left: 0;
@@ -17,22 +18,27 @@
     justify-content: center;
     align-items: center;
     z-index: 9999;
+    padding: 10px;  
 }
 
 .popup img {
-    width: 90%;
+    width: 100%;
     max-width: 600px;
+    max-height: 90vh;        /* FIX: gambar tidak nutup tombol */
+    object-fit: contain;     /* FIX: gambar tampil proporsional */
     border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
 }
 
-/* TOMBOL CLOSE */
+/* TOMBOL CLOSE FIX */
 .close-btn {
     position: absolute;
     top: 15px;
     right: 20px;
+    background: rgba(0, 0, 0, 0.5); /* FIX: biar kelihatan */
+    padding: 5px 15px;
+    border-radius: 8px;
     color: white;
-    font-size: 40px;
+    font-size: 35px;
     font-weight: bold;
     cursor: pointer;
     z-index: 10000;
