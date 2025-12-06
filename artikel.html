@@ -2,6 +2,10 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
+
+<!-- WAJIB AGAR MOBILE RESPONSIVE -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Artikel</title>
 <link rel="stylesheet" href="style.css">
 </head>
@@ -16,7 +20,6 @@
         <li><a href="program.html">Program</a></li>
         <li><a href="artikel.html">Artikel</a></li>
         <li><a href="pengumuman.html">Pengumuman</a></li>
-        
         <li><a href="kontak.html">Kontak</a></li>
     </ul>
 </nav>
@@ -25,34 +28,32 @@
 <h2>Artikel Islami</h2>
 
 <div class="card">
-<h3>Menjaga Hati dan Iman di Era Modern</h3>
-<p></p>Di tengah perkembangan teknologi dan kesibukan hidup, menjaga hati dan memperkuat iman menjadi tantangan bagi setiap Muslim. Arus informasi yang cepat, pergaulan bebas, serta hiburan tanpa batas dapat melemahkan keimanan jika tidak disikapi dengan bijak.
+    <h3>Menjaga Hati dan Iman di Era Modern</h3>
 
-1. Pentingnya Hati dalam Islam
+    <p>Di tengah perkembangan teknologi dan kesibukan hidup, menjaga hati dan memperkuat iman menjadi tantangan bagi setiap Muslim. Arus informasi yang cepat, pergaulan bebas, serta hiburan tanpa batas dapat melemahkan keimanan jika tidak disikapi dengan bijak.</p>
 
-Rasulullah ﷺ bersabda bahwa hati adalah pusat kebaikan manusia. Jika hati baik, maka baiklah seluruh amalnya. Karena itu, menjaga kebersihan hati adalah hal utama.
+    <h4>1. Pentingnya Hati dalam Islam</h4>
+    <p>Rasulullah ﷺ bersabda bahwa hati adalah pusat kebaikan manusia. Jika hati baik, maka baiklah seluruh amalnya. Karena itu, menjaga kebersihan hati adalah hal utama.</p>
 
-2. Tantangan Zaman Sekarang
+    <h4>2. Tantangan Zaman Sekarang</h4>
+    <ul>
+        <li>Informasi negatif mudah diakses</li>
+        <li>Kesibukan yang melalaikan ibadah</li>
+        <li>Lingkungan yang kurang mendukung kebaikan</li>
+    </ul>
 
-- Informasi negatif mudah diakses
-- Kesibukan yang melalaikan ibadah
-- Lingkungan yang kurang mendukung kebaikan
+    <h4>3. Cara Menjaga Iman</h4>
+    <ul>
+        <li>Perbanyak dzikir agar hati tetap tenang</li>
+        <li>Baca Al-Qur’an setiap hari, meski sedikit</li>
+        <li>Ikut kajian masjid untuk menambah ilmu</li>
+        <li>Pilih pergaulan yang baik</li>
+        <li>Bijak memakai teknologi</li>
+    </ul>
 
-
-3. Cara Menjaga Iman
-
-- Perbanyak dzikir agar hati tetap tenang
-- Baca Al-Qur’an setiap hari, meski sedikit
-- Ikut kajian masjid untuk menambah ilmu
-- Pilih pergaulan yang baik
-- Bijak memakai teknologi
-
-
-4. Peran Masjid
-
-Masjid adalah pusat pembinaan umat: tempat ibadah, tempat belajar, dan tempat memperkuat ukhuwah. Kegiatan masjid dapat menjadi benteng iman di tengah tantangan modern.</p>
+    <h4>4. Peran Masjid</h4>
+    <p>Masjid adalah pusat pembinaan umat: tempat ibadah, tempat belajar, dan tempat memperkuat ukhuwah. Kegiatan masjid dapat menjadi benteng iman di tengah tantangan modern.</p>
 </div>
-
 
 </section>
 
@@ -62,10 +63,4 @@ Masjid adalah pusat pembinaan umat: tempat ibadah, tempat belajar, dan tempat me
 const menuBtn = document.querySelector(".menu-btn");
 const navUl = document.querySelector("nav ul");
 
-menuBtn.addEventListener("click", () => {
-    navUl.classList.toggle("active");
-});
-</script>
-
-</body>
-</html>
+menuBtn.addEventListener("click", () =>
