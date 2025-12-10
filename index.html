@@ -110,18 +110,6 @@
 
 <footer>© 2025 Masjid Al-Ikhlas</footer>
 
-<!-- Tombol QRIS -->
-<div class="qris-btn" onclick="openQris()">🟦 QRIS</div>
-
-<!-- Popup QRIS -->
-<div id="qrisPopup" class="qris-popup">
-    <div class="qris-content">
-        <span class="close" onclick="closeQris()">&times;</span>
-        <h3>Scan QRIS Masjid</h3>
-        <img src="qris.jpg" alt="QRIS Masjid" style="width: 230px; border-radius: 10px;">
-    </div>
-</div>
-
 <script>
 const menuBtn = document.querySelector(".menu-btn");
 const navUl = document.querySelector("nav ul");
@@ -129,14 +117,6 @@ const navUl = document.querySelector("nav ul");
 menuBtn.addEventListener("click", () => {
     navUl.classList.toggle("active");
 });
-
-// Script QRIS
-function openQris() {
-    document.getElementById("qrisPopup").style.display = "block";
-}
-function closeQris() {
-    document.getElementById("qrisPopup").style.display = "none";
-}
 </script>
 
 </body>
