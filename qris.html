@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QRIS Masjid</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+.section {
+    padding: 25px;
+}
+
+.qris-box {
+    max-width: 500px;
+    margin: auto;
+    text-align: center;
+}
+
+.qris-box img {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 12px;
+    margin-top: 15px;
+}
+
+.qris-box h2 {
+    margin-bottom: 10px;
+}
+
+.qris-box p {
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">MASJID AL-IKHLAS</div>
+    <div class="menu-btn">☰</div>
+    <ul>
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="profil.html">Profil</a></li>
+        <li><a href="program.html">Program</a></li>
+        <li><a href="artikel.html">Artikel</a></li>
+        <li><a href="pengumuman.html">Pengumuman</a></li>
+        <li><a href="kontak.html">Kontak</a></li>
+        <li><a href="qris.html" class="active">QRIS</a></li>
+    </ul>
+</nav>
+
+<section class="section">
+    <div class="qris-box">
+        <h2>Ayo, Bangun Istana di Surga</h2>
+
+        <p>
+            Di tengah kehidupan umat, masjid bukan hanya tempat ibadah, tetapi juga pusat kegiatan sosial,
+            pendidikan, dan kebersamaan. Agar masjid dapat terus menjalankan perannya dengan baik, diperlukan
+            dukungan dari jamaah melalui donasi yang ikhlas.
+        </p>
+
+        <p>
+            Donasi dapat melalui Rekening Bank BSI <br>
+            <b>No Rekening : 7130931701</b> <br>
+            Atas Nama : Masjid Al Falah
+        </p>
+
+        <p>atau melalui QRIS di bawah ini:</p>
+
+        <img src="qris.jpg" alt="QRIS Masjid">
+    </div>
+</section>
+
+<footer>© 2025 Masjid Al-Ikhlas</footer>
+
+<script>
+const menuBtn = document.querySelector(".menu-btn");
+const navUl = document.querySelector("nav ul");
+menuBtn.addEventListener("click", () => {
+    navUl.classList.toggle("active");
+});
+</script>
+
+</body>
+</html>
