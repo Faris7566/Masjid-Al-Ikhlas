@@ -2,9 +2,9 @@
 <html lang="id">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta charset="UTF-8">
-<title>Program Masjid</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Program Masjid</title>
+    <link rel="stylesheet" href="style.css">
 
 <style>
 /* GRID RESPONSIVE */
@@ -46,8 +46,9 @@
         <li><a href="program.html" class="active">Program</a></li>
         <li><a href="artikel.html">Artikel</a></li>
         <li><a href="pengumuman.html">Pengumuman</a></li>
+        <li><a href="galeri.html">Galeri</a></li>
+      <li><a href="qris.html" class="active">Donasi</a></li>
         <li><a href="kontak.html">Kontak</a></li>
-        <li><a href="qris.html">QRIS</a></li>
     </ul>
 </nav>
 
@@ -141,13 +142,8 @@
 
 <footer>© 2025 Masjid Al-Ikhlas</footer>
 
-<script>
-const menuBtn = document.querySelector(".menu-btn");
-const navUl = document.querySelector("nav ul");
-menuBtn.addEventListener("click", () => {
-    navUl.classList.toggle("active");
-});
-</script>
+<!-- PANGGIL FILE JS -->
+<script src="main.js" defer></script>
 
 </body>
 </html>
