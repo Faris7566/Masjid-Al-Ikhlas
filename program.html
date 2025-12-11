@@ -7,42 +7,6 @@
 <link rel="stylesheet" href="style.css">
 
 <style>
-
-/* ===== GALERI POPUP FIX ===== */
-.popup {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0,0,0,0.85);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    padding: 10px;  
-}
-
-.popup img {
-    width: 100%;
-    max-width: 600px;
-    max-height: 90vh;        /* FIX: gambar tidak nutup tombol */
-    object-fit: contain;     /* FIX: gambar tampil proporsional */
-    border-radius: 12px;
-}
-
-/* TOMBOL CLOSE FIX */
-.close-btn {
-    position: absolute;
-    top: 65px;       /* ⬅ lebih turun */
-    right: 20px;
-    background: rgba(0, 0, 0, 0.5);
-    padding: 5px 15px;
-    border-radius: 8px;
-    color: white;
-    font-size: 35px;
-    font-weight: bold;
-    cursor: pointer;
-    z-index: 10000;
-}
 /* GRID RESPONSIVE */
 .program-grid {
     display: grid;
@@ -64,6 +28,10 @@
     text-align: center;
 }
 
+/* Hilangkan cursor pointer karena tidak bisa diklik */
+.program-card {
+    cursor: default;
+}
 </style>
 </head>
 
@@ -79,6 +47,7 @@
         <li><a href="artikel.html">Artikel</a></li>
         <li><a href="pengumuman.html">Pengumuman</a></li>
         <li><a href="kontak.html">Kontak</a></li>
+        <li><a href="qris.html">QRIS</a></li>
     </ul>
 </nav>
 
@@ -87,72 +56,72 @@
 
 <div class="grid program-grid">
 
-    <div class="card program-card" data-gallery="kajiankitab">
+    <div class="card program-card">
         <img src="kajiankitab.jpg">
         <p>Kajian Kitab</p>
     </div>
 
-    <div class="card program-card" data-gallery="ratib">
+    <div class="card program-card">
         <img src="ratib.jpg">
         <p>Majelis Dzikir Rotib Al Haddad</p>
     </div>
 
-    <div class="card program-card" data-gallery="diba">
+    <div class="card program-card">
         <img src="diba.jpg">
         <p>Majelis Sholawat Ad Diba'i</p>
     </div>
 
-    <div class="card program-card" data-gallery="ikhlas">
+    <div class="card program-card">
         <img src="ikhlas.jpg">
         <p>Majelis Bahagia Ikhlasan</p>
     </div>
 
-    <div class="card program-card" data-gallery="pasar">
+    <div class="card program-card">
         <img src="pasar.jpg">
         <p>Pasar Bahagia</p>
     </div>
 
-    <div class="card program-card" data-gallery="khatam">
+    <div class="card program-card">
         <img src="khatam.jpg">
         <p>Khataman Al Qur'an</p>
     </div>
 
-    <div class="card program-card" data-gallery="tpq">
+    <div class="card program-card">
         <img src="tpq.jpg">
         <p>TPQ</p>
     </div>
 
-    <div class="card program-card" data-gallery="tahsin">
+    <div class="card program-card">
         <img src="tahsin.jpg">
         <p>Tahsin Al Qur'an</p>
     </div>
 
-    <div class="card program-card" data-gallery="soljum">
+    <div class="card program-card">
         <img src="soljum.jpg">
         <p>SIJUM</p>
     </div>
 
-    <div class="card program-card" data-gallery="maulid">
+    <div class="card program-card">
         <img src="maulid.jpg">
         <p>PHBI Maulid Nabi</p>
     </div>
 
-    <div class="card program-card" data-gallery="islam">
+    <div class="card program-card">
         <img src="islam.jpg">
         <p>PHBI Tahun Baru Islam</p>
     </div>
 
-    <div class="card program-card" data-gallery="isra">
+    <div class="card program-card">
         <img src="isra.jpg">
         <p>PHBI Isra' Mi'raj</p>
     </div>
 
-    <div class="card program-card" data-gallery="ramadhan">
+    <div class="card program-card">
         <img src="ramadhan.jpg">
         <p>Ramadhan Bahagia</p>
     </div>
 
-    <div class="card program-card" data-gallery="beras">
+    <div class="card program-card">
         <img src="beras.jpg">
         <p>Gerakan Infaq Beras</p>
     </div>
@@ -172,65 +141,12 @@
 
 <footer>© 2025 Masjid Al-Ikhlas</footer>
 
-<!-- POPUP -->
-<div class="popup" id="popup">
-    <span class="close-btn" onclick="closePopup()">×</span>
-    <img id="popupImage" src="">
-</div>
-
 <script>
 const menuBtn = document.querySelector(".menu-btn");
 const navUl = document.querySelector("nav ul");
 menuBtn.addEventListener("click", () => {
     navUl.classList.toggle("active");
 });
-
-/* FOTO SLIDER */
-const photoData = {
-    kajiankitab: ["kajiankitab.jpg"],
-    ratib: ["ratib.jpg"],
-    diba: ["diba.jpg"],
-    ikhlas: ["ikhlas.jpg"],
-    pasar: ["pasar.jpg","1.jpg"],
-    khatam: ["khatam.jpg"],
-    tpq: ["11.jpg","tpq.jpg"],
-    tahsin: ["tahsin.jpg"],
-    soljum: ["4.jpg","5.jpg","soljum.jpg"],
-    maulid: ["maulid.jpg"],
-    islam: ["islam.jpg","lam.jpg"],
-    isra: ["6.jpg","7.jpg"],
-    ramadhan: ["ramadhan.jpg"],
-    beras: ["beras.jpg","3.jpg"]
-};
-
-let slideIndex = 0;
-let slideInterval;
-
-document.querySelectorAll(".program-card").forEach(card => {
-    card.addEventListener("click", () => {
-        const key = card.getAttribute("data-gallery");
-        openGallery(key);
-    });
-});
-
-function openGallery(key) {
-    const photos = photoData[key];
-    if (!photos) return;
-
-    slideIndex = 0;
-    document.getElementById("popupImage").src = photos[slideIndex];
-    document.getElementById("popup").style.display = "flex";
-
-    slideInterval = setInterval(() => {
-        slideIndex = (slideIndex + 1) % photos.length;
-        document.getElementById("popupImage").src = photos[slideIndex];
-    }, 2000);
-}
-
-function closePopup() {
-    document.getElementById("popup").style.display = "none";
-    clearInterval(slideInterval);
-}
 </script>
 
 </body>
