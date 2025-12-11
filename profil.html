@@ -2,8 +2,6 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-
-<!-- WAJIB AGAR MOBILE RESPONSIVE -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Profil Masjid</title>
@@ -18,9 +16,11 @@
     <ul>
         <li><a href="index.html">Beranda</a></li>
         <li><a href="profil.html">Profil</a></li>
-        <li><a href="program.html">Program</a></li>
+        <li><a href="program.html" class="active">Program</a></li>
         <li><a href="artikel.html">Artikel</a></li>
         <li><a href="pengumuman.html">Pengumuman</a></li>
+        <li><a href="galeri.html">Galeri</a></li>
+      <li><a href="qris.html" class="active">Donasi</a></li>
         <li><a href="kontak.html">Kontak</a></li>
     </ul>
 </nav>
@@ -46,14 +46,48 @@
 
 <footer>© 2025 Masjid Al-Ikhlas</footer>
 
-<!-- SCRIPT MENU MOBILE -->
-<script>
-const menuBtn = document.querySelector(".menu-btn");
-const navUl = document.querySelector("nav ul");
 
-menuBtn.addEventListener("click", () => {
-    navUl.classList.toggle("active");
+<!-- ========================== -->
+<!--  SEMUA JAVASCRIPT DIGABUNG  -->
+<!-- ========================== -->
+<script>
+
+// -----------------------------
+// Highlight menu otomatis
+// -----------------------------
+const navLinks = document.querySelectorAll("nav ul li a");
+navLinks.forEach(link => {
+  if (link.href === window.location.href) {
+    link.style.color = "#ffd369";
+    link.style.fontWeight = "bold";
+  }
 });
+
+// -----------------------------
+// Popup Gallery (jaga kalau butuh)
+// -----------------------------
+function openImage(src) {
+  const pop = document.getElementById("popup");
+  document.getElementById("popup-img").src = src;
+  pop.style.display = "flex";
+}
+
+function closeImage() {
+  document.getElementById("popup").style.display = "none";
+}
+
+// -----------------------------
+// Mobile Menu Button
+// -----------------------------
+const menuBtn = document.querySelector(".menu-btn");
+const navList = document.querySelector("nav ul");
+
+if (menuBtn) {
+    menuBtn.addEventListener("click", () => {
+        navList.classList.toggle("active");
+    });
+}
+
 </script>
 
 </body>
