@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program Masjid</title>
+    <link rel="stylesheet" href="style.css">
+
+<style>
+/* ==== GRID PROGRAM ==== */
+.program-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.program-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 12px;
+    transition: 0.25s;
+}
+
+.program-card img:hover {
+    transform: scale(1.05);
+}
+
+.program-card p {
+    margin-top: 6px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* ==== POPUP ==== */
+.popup-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.85);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    padding: 15px;
+}
+
+.popup-box {
+    position: relative;
+    max-width: 90%;
+    max-height: 90vh;
+    display: flex;
+    align-items: center;
+}
+
+.popup-box img {
+    max-width: 100%;
+    max-height: 90vh;
+    border-radius: 14px;
+    transition: opacity 0.4s ease;
+}
+
+/* tombol close */
+.popup-close {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: rgba(0,0,0,0.55);
+    color: #fff;
+    font-size: 32px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* tombol navigasi */
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+    padding: 10px 15px;
+    background: rgba(0,0,0,0.45);
+    border-radius: 10px;
+}
+
+.prev-btn { left: -65px; }
+.next-btn { right: -65px; }
+
+@media(max-width: 600px){
+    .prev-btn { left: -35px; }
+    .next-btn { right: -35px; }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">MASJID AL-IKHLAS</div>
+    <div class="menu-btn">☰</div>
+    <ul>
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="profil.html">Profil</a></li>
+        <li><a href="program.html" class="active">Program</a></li>
+        <li><a href="artikel.html">Artikel</a></li>
+        <li><a href="pengumuman.html">Pengumuman</a></li>
+        <li><a href="galeri.html">Galeri</a></li>
+      <li><a href="qris.html" class="active">Donasi</a></li>
+        <li><a href="kontak.html">Kontak</a></li>
+    </ul>
+</nav>
+
+<section class="section">
+<h2>Program & Kegiatan</h2>
+
+<div class="grid program-grid">
+
+    <div class="card program-card" data-gallery="kajiankitab">
+        <img src="kajiankitab.jpg"><p>Kajian Kitab</p>
+    </div>
+
+    <div class="card program-card" data-gallery="ratib">
+        <img src="ratib.jpg"><p>Majelis Dzikir Rotib</p>
+    </div>
+
+    <div class="card program-card" data-gallery="diba">
+        <img src="diba.jpg"><p>Majelis Sholawat Diba'</p>
+    </div>
+
+    <div class="card program-card" data-gallery="ikhlas">
+        <img src="ikhlas.jpg"><p>Majelis Bahagia Ikhlasan</p>
+    </div>
+
+    <div class="card program-card" data-gallery="pasar">
+        <img src="pasar.jpg"><p>Pasar Bahagia</p>
+    </div>
+
+    <div class="card program-card" data-gallery="khatam">
+        <img src="khatam.jpg"><p>Khataman Qur'an</p>
+    </div>
+
+    <div class="card program-card" data-gallery="tpq">
+        <img src="tpq.jpg"><p>TPQ</p>
+    </div>
+
+    <div class="card program-card" data-gallery="tahsin">
+        <img src="tahsin.jpg"><p>Tahsin Qur'an</p>
+    </div>
+
+    <div class="card program-card" data-gallery="soljum">
+        <img src="soljum.jpg"><p>SIJUM</p>
+    </div>
+
+    <div class="card program-card" data-gallery="maulid">
+        <img src="maulid.jpg"><p>PHBI Maulid</p>
+    </div>
+
+    <div class="card program-card" data-gallery="islam">
+        <img src="islam.jpg"><p>Tahun Baru Islam</p>
+    </div>
+
+    <div class="card program-card" data-gallery="isra">
+        <img src="isra.jpg"><p>Isra' Mi'raj</p>
+    </div>
+
+    <div class="card program-card" data-gallery="ramadhan">
+        <img src="ramadhan.jpg"><p>Ramadhan Bahagia</p>
+    </div>
+
+    <div class="card program-card" data-gallery="beras">
+        <img src="beras.jpg"><p>Gerakan Infaq Beras</p>
+    </div>
+
+</div>
+</section>
+
+<footer>© 2025 Masjid Al-Ikhlas</footer>
+
+<!-- ==== POPUP ==== -->
+<div id="popup" class="popup-overlay">
+    <div class="popup-box">
+        <img id="popup-img" src="">
+
+        <div class="nav-btn prev-btn" onclick="prevSlide()">❮</div>
+        <div class="nav-btn next-btn" onclick="nextSlide()">❯</div>
+
+        <div class="popup-close" onclick="closePopup()">×</div>
+    </div>
+</div>
+
+<script>
+/* ==== NAVBAR MOBILE ==== */
+const menuBtn = document.querySelector(".menu-btn");
+const navUl = document.querySelector("nav ul");
+menuBtn.addEventListener("click", () => navUl.classList.toggle("active"));
+
+/* ==== FOTO DATA ==== */
+const photoData = {
+    kajiankitab: ["kajiankitab.jpg"],
+    ratib: ["ratib.jpg"],
+    diba: ["diba.jpg"],
+    ikhlas: ["ikhlas.jpg"],
+    pasar: ["pasar.jpg","1.jpg"],
+    khatam: ["khatam.jpg"],
+    tpq: ["11.jpg","tpq.jpg"],
+    tahsin: ["tahsin.jpg"],
+    soljum: ["4.jpg","5.jpg","soljum.jpg"],
+    maulid: ["maulid.jpg"],
+    islam: ["islam.jpg","lam.jpg"],
+    isra: ["6.jpg","7.jpg"],
+    ramadhan: ["ramadhan.jpg"],
+    beras: ["beras.jpg","3.jpg"]
+};
+
+let currentPhotos = [];
+let slideIndex = 0;
+let slideInterval;
+
+/* ==== OPEN POPUP ==== */
+document.querySelectorAll(".program-card").forEach(card => {
+    card.addEventListener("click", () => {
+        const key = card.getAttribute("data-gallery");
+        openPopup(key);
+    });
+});
+
+function openPopup(key){
+    currentPhotos = photoData[key];
+    slideIndex = 0;
+
+    document.getElementById("popup-img").style.opacity = 0;
+    setTimeout(() => {
+        document.getElementById("popup-img").src = currentPhotos[slideIndex];
+        document.getElementById("popup-img").style.opacity = 1;
+    }, 200);
+
+    document.getElementById("popup").style.display = "flex";
+
+    slideInterval = setInterval(nextSlide, 2500);
+}
+
+/* ==== SLIDE ==== */
+function nextSlide(){
+    slideIndex = (slideIndex + 1) % currentPhotos.length;
+    fadeImage(currentPhotos[slideIndex]);
+}
+
+function prevSlide(){
+    slideIndex = (slideIndex - 1 + currentPhotos.length) % currentPhotos.length;
+    fadeImage(currentPhotos[slideIndex]);
+}
+
+function fadeImage(src){
+    const img = document.getElementById("popup-img");
+    img.style.opacity = 0;
+    setTimeout(() => {
+        img.src = src;
+        img.style.opacity = 1;
+    }, 200);
+}
+
+/* ==== CLOSE POPUP ==== */
+function closePopup(){
+    document.getElementById("popup").style.display = "none";
+    clearInterval(slideInterval);
+}
+
+/* Klik luar popup menutup */
+document.getElementById("popup").addEventListener("click", (e)=>{
+    if(e.target.id === "popup"){
+        closePopup();
+    }
+});
+</script>
+
+</body>
+</html>
