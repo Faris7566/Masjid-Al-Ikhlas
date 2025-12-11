@@ -266,3 +266,37 @@ footer {
 nav, .menu-btn {
     z-index: 99999;
 }
+
+/* PAGE FADE ANIMATION */
+body {
+    opacity: 0;
+    transition: opacity .3s ease;
+}
+
+body.fade-in {
+    opacity: 1;
+}
+
+body.fade-out {
+    opacity: 0;
+}
+
+/* ACTIVE MENU LINK */
+.active-link {
+    color: #ffd369 !important;
+    font-weight: bold;
+}
+
+/* DARK MODE */
+.dark-mode {
+    background: #111;
+    color: white;
+}
+
+.dark-mode nav {
+    background: #222;
+}
+
+.dark-mode .card {
+    background: #1b1b1b;
+}
