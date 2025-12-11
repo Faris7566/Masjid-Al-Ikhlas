@@ -9,26 +9,6 @@ navLinks.forEach(link => {
 });
 
 /* ============================================
-   PAGE TRANSITION
-============================================ */
-document.body.classList.add("fade-in");
-
-document.querySelectorAll("a").forEach(link => {
-    if (link.href && !link.href.includes("#")) {
-        link.addEventListener("click", e => {
-            e.preventDefault();
-            const url = link.href;
-
-            document.body.classList.add("fade-out");
-
-            setTimeout(() => {
-                window.location = url;
-            }, 300);
-        });
-    }
-});
-
-/* ============================================
    DARK MODE
 ============================================ */
 function applyTheme() {
