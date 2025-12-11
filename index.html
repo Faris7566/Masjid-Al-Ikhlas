@@ -59,7 +59,7 @@
         .hero {
             position: relative;
             width: 100%;
-            height: 100vh; /* memenuhi layar */
+            height: 100vh;
             background: url('masjid.jpg') center/cover no-repeat;
             display: flex;
             justify-content: center;
@@ -109,16 +109,12 @@
     <h1>Selamat Datang di Website Resmi Masjid Al-Ikhlas</h1>
 </div>
 
-<footer>© 2025 Masjid Al-Ikhlas</footer>
+<footer>
+    © 2025 Masjid Al-Ikhlas
+</footer>
 
-<script>
-const menuBtn = document.querySelector(".menu-btn");
-const navUl = document.querySelector("nav ul");
-
-menuBtn.addEventListener("click", () => {
-    navUl.classList.toggle("active");
-});
-</script>
+<!-- LOAD JAVASCRIPT UTAMA -->
+<script src="main.js" defer></script>
 
 </body>
 </html>
