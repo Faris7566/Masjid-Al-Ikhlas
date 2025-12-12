@@ -12,20 +12,28 @@ html, body {
     height: 100%;
 }
 
-/* BODY (SUDAH TANPA ANIMASI) */
 body {
     background: #f5f5f5;
     color: #222;
     line-height: 1.6;
 
+    /* sticky footer */
     display: flex;
     flex-direction: column;
+}
 
-    padding-top: 80px;
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
 }
 
 /* ============================================
-   NAVBAR
+   NAVBAR (FIXED)
 ============================================ */
 nav {
     width: 100%;
@@ -34,13 +42,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-
-    z-index: 9999;
+    position: relative; /* penting untuk mobile menu */
 }
 
 nav .logo {
@@ -49,6 +51,7 @@ nav .logo {
     font-weight: 700;
 }
 
+/* desktop menu */
 nav ul {
     display: flex;
     gap: 30px;
@@ -65,12 +68,7 @@ nav ul li a:hover {
     color: #ffd369;
 }
 
-.active-link {
-    color: #ffd369 !important;
-    font-weight: bold;
-}
-
-/* HAMBURGER */
+/* ======== TOMBOL MOBILE (☰) ======== */
 .menu-btn {
     display: none;
     font-size: 28px;
@@ -78,6 +76,7 @@ nav ul li a:hover {
     cursor: pointer;
 }
 
+/* menu mobile saat aktif */
 nav ul.active {
     display: flex !important;
     flex-direction: column;
@@ -89,41 +88,30 @@ nav ul.active {
     padding: 20px;
     border-radius: 0 0 0 12px;
     gap: 15px;
-    z-index: 9999;
+    z-index: 999;
 }
 
 /* ============================================
-   HERO SECTION
+   HERO
 ============================================ */
 .hero {
-    width: 100%;
-    height: 100vh;
-    padding-top: 80px;
+    height: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    position: relative;
+    color: white;
+    background: url("masjid.jpg") center/cover no-repeat;
 }
 
 .hero h1 {
     font-size: 40px;
     max-width: 500px;
-    color: #ffffff;
-    text-shadow: 1px 1px 5px rgba(0,0,0,0.6);
-}
-
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.40);
+    color: #fff;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6);
 }
 
 /* ============================================
-   SECTION + GRID + CARD
+   SECTION + CARD
 ============================================ */
 .section {
     padding: 60px 5%;
@@ -142,52 +130,10 @@ nav ul.active {
 }
 
 .card {
-    background: #ffffff;
+    background: #fff;
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* ============================================
-   IMAGES 4:3
-============================================ */
-.gallery img,
-.grid img {
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-/* ============================================
-   PROGRAM GRID
-============================================ */
-.program-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 15px;
-}
-
-.program-card {
-    padding: 0;
-    overflow: hidden;
-    text-align: center;
-}
-
-.program-card img {
-    width: 100%;
-    height: 140px;
-    object-fit: cover;
-    border-radius: 10px 10px 0 0;
-}
-
-.program-card p {
-    padding: 10px;
-    font-weight: bold;
-    background: white;
-    border-radius: 0 0 10px 10px;
 }
 
 /* ============================================
@@ -225,99 +171,122 @@ footer {
     background: #0f1a2c;
     color: #fff;
     text-align: center;
-    margin-top: auto;
+    margin-top: auto; /* ⬅ penting untuk sticky footer */
 }
 
 /* ============================================
-   DARK MODE FIXED SEPENUHNYA
+   RESPONSIVENESS
 ============================================ */
-.dark-mode {
-    background: #0d0d0d;
-    color: #f4f4f4;
-}
 
-.dark-mode nav {
-    background: #111a2d;
-}
-
-.dark-mode nav ul li a {
-    color: #f0f0f0;
-}
-
-.dark-mode .card {
-    background: #1c1c1c;
-    color: #f1f1f1;
-    box-shadow: 0 4px 10px rgba(255,255,255,0.06);
-}
-
-.dark-mode .section h2 {
-    color: #f0f0f0;
-}
-
-.dark-mode .program-card p {
-    background: #222;
-    color: #fff;
-}
-
-.dark-mode form input,
-.dark-mode form textarea {
-    background: #1c1c1c;
-    color: white;
-    border: 1px solid #555;
-}
-
-.dark-mode button {
-    background: #e5b85b;
-    color: #000;
-}
-
-.dark-mode button:hover {
-    background: #ffd369;
-}
-
-.dark-mode footer {
-    background: #111a2d;
-}
-
-/* HERO DARK */
-.dark-mode .hero-overlay {
-    background: rgba(0,0,0,0.55);
-}
-
-.dark-mode .hero h1 {
-    color: #fff;
-}
-
-/* ============================================
-   RESPONSIVE
-============================================ */
+/* TABLET */
 @media (max-width: 992px) {
     .hero h1 {
         font-size: 32px;
     }
 }
 
+/* MOBILE */
 @media (max-width: 768px) {
-
-    nav ul {
-        display: none;
-        flex-direction: column;
-    }
-
-    .menu-btn {
-        display: block;
-    }
-
-    nav ul.active {
-        display: flex !important;
-    }
 
     .hero {
         height: 45vh;
+        padding-left: 5%;
     }
 
     .hero h1 {
         font-size: 26px;
         max-width: 300px;
     }
+
+    /* sembunyikan menu desktop */
+    nav ul {
+        display: none;
+        flex-direction: column;
+    }
+
+    /* tampilkan tombol 3 garis */
+    .menu-btn {
+        display: block;
+    }
+
+    /* menu mobile saat aktif */
+    nav ul.active {
+        display: flex !important;
+        flex-direction: column;
+    }
+}
+
+/* ============================================
+   PROGRAM GRID
+============================================ */
+.program-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+}
+
+.program-card {
+    padding: 0;
+    overflow: hidden;
+    text-align: center;
+}
+
+.program-card img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+}
+
+.program-card p {
+    padding: 10px;
+    font-weight: bold;
+    background: white;
+    border-radius: 0 0 10px 10px;
+}
+
+/* ============================================
+   GALERI - FIX 4:3 RATIO
+============================================ */
+.gallery img,
+.grid img {
+    width: 100%;
+    aspect-ratio: 4 / 3;  
+    object-fit: cover;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    padding: 0 !important;
+}
+
+.artikel-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.artikel-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 60px;  /* dari 40px → 60px biar lebih jauh */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+}
+
+.artikel-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.artikel-content {
+    padding: 20px;
+}
+
+.artikel-content h3 {
+    margin-bottom: 10px;
+}
+
+.artikel-content h4 {
+    margin-top: 20px;
 }
